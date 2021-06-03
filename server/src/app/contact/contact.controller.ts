@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Put, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Param,
+  Body,
+} from '@nestjs/common';
 import { get } from 'https';
 
 @Controller('contacts')
@@ -9,26 +17,25 @@ export class ContactController {
   }
 
   @Get('/:contactId')
-  getContactById() {
-    let contactId;
-    return `Get olnly contact with  ${contactId} id`;
+  getContactById(@Param('contactId') contactId: string) {
+    return `Get olnly contact with id: ${contactId}`;
   }
 
-  @Post('')
-  creatContact() {
-    let contactId;
-    return `Create a contact  ${contactId} id`;
+  @Post()
+  creatContact(@Body() body) {
+    return `Create a contact with data: ${JSON.stringify(body)}`;
   }
 
   @Put('/:contactId')
-  updateContact() {
-    let contactId;
-    return `Update a contact with  ${contactId} id`;
+  updateContact(@Param('contactId') contactId: string, @Body() body) {
+    console.log(body);
+    return `Update a contact with id: ${contactId} with data: ${JSON.stringify(
+      body,
+    )}`;
   }
 
   @Delete('/:contactId')
-  DeleteContact() {
-    let contactId;
+  DeleteContact(@Param('contactId') contactId: string) {
     return `Deleted the contact with  ${contactId} id`;
   }
 }
