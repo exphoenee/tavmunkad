@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ContactController } from './contact/contact.controller';
+import { ContactController } from '../contact/contact.controller';
 
 @Module({
   imports: [],
