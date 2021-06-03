@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-179d255bb7c-391847d5ca696ad9": {
+			"provider": "generic",
+			"driver": "sqlite_jdbc",
+			"name": "db",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "D:\\xampp\\htdocs\\tavmunkad\\server\\db",
+				"url": "jdbc:sqlite:D:\\xampp\\htdocs\\tavmunkad\\server\\db",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

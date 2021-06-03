@@ -1,12 +1,8 @@
-import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
+import { SqliteConnectionOptions } from 'typeorm/driver/sqlite/SqliteConnectionOptions';
 
-const config: MysqlConnectionOptions = {
-  type: 'mysql',
-  host: 'localhost',
-  port: 3306,
-  username: 'test',
-  password: 'test',
-  database: 'test',
+const config: SqliteConnectionOptions = {
+  type: 'sqlite',
+  database: 'db',
   entities: ['dist/src/entity/**/*.ts', 'dist/src/entity/*.ts'],
   synchronize: true,
 };
