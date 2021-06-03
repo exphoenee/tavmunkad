@@ -70,12 +70,12 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/contacts",
+					"raw": "http://localhost:5000/contacts",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
 						"contacts"
 					]
@@ -110,9 +110,20 @@
 		{
 			"name": "DeleteContact",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:5000/contacts/1c2504f2-b656-11eb-8529-0242ac130003",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						"1c2504f2-b656-11eb-8529-0242ac130003"
+					]
+				}
 			},
 			"response": []
 		}
