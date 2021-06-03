@@ -7,30 +7,35 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
+/*------------------------*/
 import {
   CreateContactDto,
   UpdateContactDto,
   FindContactResponseDto,
   ContactResponseDto,
 } from './dto/contact.dto';
+import { ContactService } from '../contact/contact.service';
+/*------------------------*/
 
 @Controller('contacts')
 export class ContactController {
+  constructor(private readonly contactService: ContactService) {}
+
   @Get()
   getContact(): FindContactResponseDto[] {
-    return 'All contacts';
+    return this.contactService.getContacts();
   }
 
   @Get('/:contactId')
   getContactById(
     @Param('contactId') contactId: string,
   ): FindContactResponseDto {
-    return `Get olnly contact with id: ${contactId}`;
+    return this.contactService.getContactById(contactId);
   }
 
   @Post()
   creatContact(@Body() body: CreateContactDto): ContactResponseDto {
-    return `Create a contact with data: ${JSON.stringify(body)}`;
+    return this.contactService.createContact(body);
   }
 
   @Put('/:contactId')
@@ -38,11 +43,11 @@ export class ContactController {
     @Param('contactId') contactId: string,
     @Body() body: UpdateContactDto,
   ): ContactResponseDto {
-    return `Update contact with id: ${contactId} data: ${JSON.stringify(body)}`;
+    return this.contactService.updateContact(contactId, body);
   }
 
   @Delete('/:contactId')
-  DeleteContact(@Param('contactId') contactId: string): ContactResponseDto {
-    return `Deleted the contact with  ${contactId} id`;
+  DeleteContact(@Param('contactId') contactId: string): ContactResponseDto[] {
+    return this.contactService.deleteContact(contactId);
   }
 }
