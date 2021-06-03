@@ -6,6 +6,7 @@ import {
   Delete,
   Param,
   Body,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 /*------------------------*/
 import {
@@ -28,7 +29,7 @@ export class ContactController {
 
   @Get('/:contactId')
   getContactById(
-    @Param('contactId') contactId: string,
+    @Param('contactId', new ParseUUIDPipe()) contactId: string,
   ): FindContactResponseDto {
     return this.contactService.getContactById(contactId);
   }
@@ -40,14 +41,16 @@ export class ContactController {
 
   @Put('/:contactId')
   updateContact(
-    @Param('contactId') contactId: string,
+    @Param('contactId', new ParseUUIDPipe()) contactId: string,
     @Body() body: UpdateContactDto,
   ): ContactResponseDto {
     return this.contactService.updateContact(contactId, body);
   }
 
   @Delete('/:contactId')
-  DeleteContact(@Param('contactId') contactId: string): ContactResponseDto[] {
+  DeleteContact(
+    @Param('contactId', new ParseUUIDPipe()) contactId: string,
+  ): ContactResponseDto[] {
     return this.contactService.deleteContact(contactId);
   }
 }
