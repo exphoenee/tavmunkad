@@ -2,13 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { v4 as uuid } from 'uuid';
 /*------------------------*/
 
-import { contacts } from '../db';
 import {
   FindContactResponseDto,
   CreateContactDto,
   ContactResponseDto,
   UpdateContactDto,
-} from './dto/contact.dto';
+} from '../dto/contact.dto';
+/*------------------------*/
+
+import { contacts } from '../../mockdb/db';
 /*------------------------*/
 
 @Injectable()

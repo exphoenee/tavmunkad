@@ -14,8 +14,8 @@ import {
   UpdateContactDto,
   FindContactResponseDto,
   ContactResponseDto,
-} from './dto/contact.dto';
-import { ContactService } from '../contact/contact.service';
+} from '../dto/contact.dto';
+import { ContactService } from '../service/contact.service';
 /*------------------------*/
 
 @Controller('contacts')
@@ -39,6 +39,7 @@ export class ContactController {
     return this.contactService.createContact(body);
   }
 
+  //Ez miért nem működik!?!?!? Valaki árulja el nekem!
   @Put('/:contactId')
   updateContact(
     @Param('contactId', new ParseUUIDPipe()) contactId: string,

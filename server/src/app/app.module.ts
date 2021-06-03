@@ -1,13 +1,9 @@
 import { Module } from '@nestjs/common';
 /*------------------------*/
-
-import { ContactController } from '../contact/contact.controller';
-import { ContactService } from '../contact/contact.service';
+import { ContactModule } from '../contact/contact.module';
 /*------------------------*/
 
 @Module({
-  imports: [],
-  controllers: [ContactController],
-  providers: [ContactService],
+  imports: [ContactModule],
 })
 export class AppModule {}
