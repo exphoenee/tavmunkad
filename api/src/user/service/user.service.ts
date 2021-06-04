@@ -9,26 +9,26 @@ import { User } from '../models/user.interface';
 export class UserService {
   constructor(
     @InjectRepository(UserEntity)
-    private readonly userReposiroy: Repository<UserEntity>,
+    private readonly userRepository: Repository<UserEntity>,
   ) {}
 
   create(user: User): Observable<User> {
-    return from(this.userReposiroy.save(user));
-  }
-
-  findOne(id: number): Observable<User> {
-    return from(this.userReposiroy.findOne({ id }));
+    return from(this.userRepository.save(user));
   }
 
   findAll(): Observable<User[]> {
-    return from(this.userReposiroy.find());
+    return from(this.userRepository.find());
+  }
+
+  findOne(id: number): Observable<User> {
+    return from(this.userRepository.findOne({ id }));
   }
 
   deleteOne(id: number): Observable<any> {
-    return from(this.userReposiroy.delete(id));
+    return from(this.userRepository.delete(id));
   }
 
   updateOne(id: number, user: User): Observable<any> {
-    return from(this.userReposiroy.update(id, user));
+    return from(this.userRepository.update(id, user));
   }
 }
