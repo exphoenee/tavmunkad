@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user.interface';
 import { UserService } from '../service/user.service';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private userService: UserService) {}
 
@@ -37,6 +37,7 @@ export class UserController {
 
   @Put(':id')
   updateOne(@Param('id') id: string, @Body() user: User): Observable<User> {
+    console.log(user);
     return this.userService.updateOne(Number(id), user);
   }
 }
