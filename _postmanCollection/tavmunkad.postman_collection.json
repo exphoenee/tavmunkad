@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "af4bf71c-6809-4f77-bd47-5be0bd4097b5",
+		"_postman_id": "5920513e-f47e-4f7e-b6c4-8aefa2fbea39",
 		"name": "tavmunkad",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,14 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/contacts",
+					"raw": "http://localhost:5000/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
-						"contacts"
+						"users"
 					]
 				}
 			},
@@ -30,15 +30,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/contacts/1",
+					"raw": "http://localhost:5000/users/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
-						"contacts",
-						"1"
+						"users",
+						"2"
 					]
 				}
 			},
@@ -58,26 +58,55 @@
 							"type": "text"
 						},
 						{
-							"key": "phone",
-							"value": "+365555555",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "none@none.none",
+							"key": "username",
+							"value": "exphoenee",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/contacts",
+					"raw": "http://localhost:5000/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"contacts"
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creat OtherContact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Kovács Ernő",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Ernőke21",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users"
 					]
 				}
 			},
@@ -90,18 +119,23 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Kovács Ernő\",\r\n    \"phone\": \"+2066666666\",\r\n    \"email\": \"kovacs@erno.hu\",\r\n}"
+					"raw": "{\r\n    \"name\": \"Minta Mókus\",\r\n    \"username\": \"lolka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/contacts/1",
+					"raw": "http://localhost:5000/users/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "5000",
 					"path": [
-						"contacts",
-						"1"
+						"users",
+						"3"
 					]
 				}
 			},
@@ -113,15 +147,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/contacts/1c2504f2-b656-11eb-8529-0242ac130003",
+					"raw": "http://localhost:5000/users/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"contacts",
-						"1c2504f2-b656-11eb-8529-0242ac130003"
+						"users",
+						"1"
 					]
 				}
 			},
