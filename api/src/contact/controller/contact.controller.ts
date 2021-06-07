@@ -8,8 +8,8 @@ import {
   Put,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { User } from '../models/user.interface';
-import { UserService } from '../service/user.service';
+import { User } from '../models/contact.interface';
+import { UserService } from '../service/contact.service';
 
 @Controller('users')
 export class UserController {
